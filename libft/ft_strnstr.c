@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 09:30:38 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 10:03:04 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/09 13:26:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,10 @@ int main()
 				ft_strnstr(src,empty,len),strnstr(src,empty,len));
 		printf("----\n");
 	}
+
+	free (src);
+	free (find);
+	free (nofind);
+	free (empty);
+
 } */

@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 09:00:12 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 09:24:57 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/09 23:49:11 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ int main (void)
 	for (size = 0; size < strlen(s1); size++)
 	{
 		printf("size: %zu    ", size);
-		printf("ft_strncmp: %d    stncmp:  %d\n", ft_strncmp(s1, s2, size), strncmp(s1, s2, size));
+		printf("ft_strncmp: %d    stncmp:  %d\n", 
+			ft_strncmp(s1, s2, size), strncmp(s1, s2, size));
 	}
+	free(s1); 
+	free(s2);
 } */

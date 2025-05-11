@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:52:28 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/07 22:28:56 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/09 12:06:54 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,9 @@ int main (void)
 	memcpy(s1a, s2a, size);
 	printf("memcpy:    %s\n", s1a);
 	printf("strcmp: %d\n",strcmp(s1,s1a));
+	free(s1);
+	free(s1a);
+	free(s2);
+	free(s2a);
+
 } */

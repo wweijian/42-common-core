@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 00:18:48 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 00:58:13 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/08 00:38:22 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/09 23:52:42 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
-	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
 		i++;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
 	return (0);
 }
 
@@ -31,14 +31,16 @@ char	*ft_strchr(const char *s, int c)
 
 int main ()
 {
-	char	*s1 = strdup("qwertyuiopasqwertyuiopasdfghjklzxcvbnmdfghjklzxcvbnm/.,';l");
+	char	*s1 = strdup("qwertyuiopasqwertyuiop
+		asdfghjklzxcvbnmdfghjklzxcvbnm/.,';l");
 	char	search = 'c';
+
 	for (int i = 0; i < (int) strlen(s1); i++)
 	{
 		search = s1[i];
 		search = s1[i];
 		printf("s1: %s, search: (%c)        ", s1, search);
-		if (ft_strchr(s1,search) == strchr(s1,search))
+		if (ft_strrchr(s1,search) == strrchr(s1,search))
 			printf("OKAY\n");
 		else
 		{
@@ -46,5 +48,6 @@ int main ()
 			break;
 		}
 	}
-	printf("-----\ncompleted:  ft_strchr\n");
+	printf("-----\ncompleted:  ft_strrchr\n");
+	free(s1);
 } */

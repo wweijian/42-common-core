@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 11:09:37 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 12:27:24 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/08 16:56:16 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void			*ret;
+	void			*res;
 	unsigned char	*buf;
 	size_t			total_size;
 
 	total_size = nmemb * size;
-	if ((nmemb == 18446744073709551615UL || size == 18446744073709551615UL)
-		|| (total_size == 0))
+	if (nmemb == 18446744073709551615UL || size == 18446744073709551615UL)
 		return (NULL);
-	ret = (void *)malloc(total_size);
-	if (!ret)
+	res = (void *)malloc(total_size);
+	if (!res)
 		return (0);
-	buf = (unsigned char *)ret;
+	buf = (unsigned char *)res;
 	while (total_size != 0)
 	{
 		*buf = '\0';
 		buf++;
 		total_size--;
 	}
-	return (ret);
+	return (res);
 }
 
 /* #include <stdio.h>

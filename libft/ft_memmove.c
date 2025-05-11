@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 22:08:55 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/07 23:01:47 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/09 16:11:39 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,7 @@ int main (void)
 	memmove(&s1a[0], &s1a[1], size);
 	printf("memmove:    %s\n", s1a);
 	printf("strcmp: %d\n",strcmp(s1,s1a));
+
+	free (s1);
+	free (s1a);
 } */

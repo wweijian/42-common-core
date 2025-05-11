@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 00:38:22 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 00:58:43 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/07 23:41:22 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/09 23:49:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
+#include "libft.h"
 
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t				i;
+	const unsigned char	*str;
+
+	str = (const unsigned char *)s;
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	while (i < n)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		if (str[i] == (unsigned char) c)
+			return ((void *)s + i);
+		i++;
 	}
 	return (0);
 }
@@ -31,21 +33,15 @@ char	*ft_strrchr(const char *s, int c)
 
 int main ()
 {
-	char	*s1 = strdup("qwertyuiopasqwertyuiopasdfghjklzxcvbnmdfghjklzxcvbnm/.,';l");
+	char	*s1 = strdup("helloc");
 	char	search = 'c';
 
-	for (int i = 0; i < (int) strlen(s1); i++)
+	printf("s1: %s, search: %c\n----\n", s1, search);
+	for(unsigned int size = 0; size < 10 ;size++)
 	{
-		search = s1[i];
-		search = s1[i];
-		printf("s1: %s, search: (%c)        ", s1, search);
-		if (ft_strrchr(s1,search) == strrchr(s1,search))
-			printf("OKAY\n");
-		else
-		{
-			printf("NOTOKAY");
-			break;
-		}
+		printf("size: %u\n", size);
+		printf("ft_memchr: %p\nmemchar:   %p\n\n", 
+			ft_memchr(s1,search,size), memchr(s1,search,size));
 	}
-	printf("-----\ncompleted:  ft_strrchr\n");
+	free (s1);
 } */

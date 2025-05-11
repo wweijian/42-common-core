@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 23:41:22 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 00:31:33 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/08 14:01:42 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/08 15:28:04 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t				i;
-	const unsigned char	*str;
+	char	*res;
+	size_t	len;
+	int		i;
 
-	str = (const unsigned char *)s;
+	if (s == NULL)
+		return (NULL);
+	len = 0;
+	while (s[len])
+		len++;
+	res = (char *) malloc (sizeof(char) * (len + 1));
 	i = 0;
-	while (i < n)
+	while (s[i])
 	{
-		if (str[i] == (unsigned char) c)
-			return ((void *)s + i);
+		res[i] = s[i];
 		i++;
 	}
-	return (0);
+	res[i] = '\0';
+	return (res);
 }
 
 /* #include <stdio.h>
@@ -33,13 +39,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 int main ()
 {
-	char	*s1 = strdup("helloc");
-	char	search = 'c';
-
-	printf("s1: %s, search: %c\n----\n", s1, search);
-	for(unsigned int size = 0; size < 10 ;size++)
-	{
-		printf("size: %u\n", size);
-		printf("ft_memchr: %p\nmemchar:   %p\n\n", ft_memchr(s1,search,size), memchr(s1,search,size));
-	}
+	char *s0 = strdup("nihao");
+	char *s1 = ft_strdup(s0);
+	printf("s1: %s\n", s1);
 } */

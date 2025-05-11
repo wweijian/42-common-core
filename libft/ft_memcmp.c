@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 23:08:50 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/07 23:38:49 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/09 23:53:42 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ int main (void)
 
 	printf("original: %s\n", s1);
 	printf("s1: %s, s2: %s\n", s1, s2);
-	printf("ft_memcmp: %d\nmemcmp:   %d\n",ft_memcmp(s1, s2, size),memcmp(s1, s2, size));
+	printf("ft_memcmp: %d\nmemcmp:   %d\n",ft_memcmp(s1, s2, size),
+		memcmp(s1, s2, size));
 	printf("\n");
 	printf("s1: %s, s2: %s\n", s1, s1a);
-	printf("ft_memcmp: %d\nmemcmp:   %d\n",ft_memcmp(s1, s1a, size),memcmp(s1, s1a, size));
-
+	printf("ft_memcmp: %d\nmemcmp:   %d\n",ft_memcmp(s1, s1a, size),
+		memcmp(s1, s1a, size));
+	free(s1);
+	free(s1a);
+	free(s2);
 } */
