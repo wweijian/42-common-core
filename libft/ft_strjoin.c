@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 22:36:59 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 23:48:18 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/11 20:43:07 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 
-	printf("s1 len: %zu    s2 len: %zu\n", ft_strlen(s1), ft_strlen(s2));
 	res = (char *) malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!res)
 		return (NULL);
