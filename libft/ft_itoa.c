@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:38:39 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 23:48:43 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 16:58:37 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ char	*ft_itoa(int n)
 	neg = is_neg(n);
 	num = (unsigned int) n * neg;
 	len = numlen(num, neg);
-	res = (char *) malloc(sizeof(char) * len);
+	res = (char *) malloc(sizeof(char) * len + 1);
+	if (!res)
+		return (NULL);
 	while (len > 0)
 	{
 		res[len - 1] = num % 10 + '0';
@@ -62,7 +64,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-/* #include <limits.h>
+#include <limits.h>
 #include <stdio.h>
 
 int main ()
@@ -87,4 +89,4 @@ int main ()
 	free (s_min);
 	free (s_all);
 	free (s_negzero);
-} */
+}
