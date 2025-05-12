@@ -1,124 +1,183 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/11 22:09:09 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/12 10:36:09 by wjhoe            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*
-	DESCRIPTION :
-	The function ft_split allocates and copies an array of strings by 
-	splitting the given string s using the given separator c.
-
-	RETURN VALUE :
-	An array of strings resulting from the split. NULL if the memory
-	allocation fails.
-*/
-
-static int	ft_count_words(const char *s, char c)
+static unsigned int	ft_countwords(char const *s, char c)
 {
-	int	words;
-	int	i;
+	int	word_bool;
+	int	word_count;
 
-	words = 0;
-	i = 0;
-	while (s[i])
+	word_bool = 0;
+	word_count = 0;
+	while (*s)
 	{
-		if (i == 0 && s[i] != c)
-			words++;
-		if (i > 0 && s[i] != c && s[i - 1] == c)
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-static char	**ft_malloc_strs(char **strs, const char *s, char c)
-{
-	int	count;
-	int	i;
-	int	x;
-
-	count = 0;
-	i = 0;
-	x = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-			count++;
-		if ((s[i] == c && i > 0 && s[i - 1] != c)
-			|| (s[i] != c && s[i + 1] == '\0'))
+		if (*s != c && !word_bool)
 		{
-			strs[x] = malloc(sizeof(char) * (count + 1));
-			if (!strs[x])
-				return (NULL);
-			count = 0;
-			x++;
+			word_bool = 1;
+			word_count++;
 		}
-		i++;
+		if (*s == c)
+			word_bool = 0;
+		s++;
 	}
-	return (strs);
+	return (word_count);
 }
 
-static char	**ft_cpy_strs(char **strs, const char *s, char c)
+static void	free_split(char **word_split, unsigned int word_count)
 {
-	int	i;
-	int	x;
-	int	y;
+	unsigned int	i;
 
 	i = 0;
-	x = 0;
-	y = 0;
-	while (s[i])
+	while (i < word_count)
 	{
-		if (s[i] != c)
-			strs[x][y++] = s[i];
-		if (s[i] != c && s[i + 1] == '\0')
-			strs[x][y] = '\0';
-		if (s[i] == c && i > 0 && s[i - 1] != c)
-		{
-			strs[x][y] = '\0';
-			x++;
-			y = 0;
-		}
+		free(word_split);
 		i++;
 	}
-	return (strs);
+	free(word_split);
 }
 
-static char	**ft_merror(char **strs)
+static char	*make_word(char const *s, char c)
 {
-	int	i;
+	int		word_len;
+	char	*word_res;
 
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		strs[i] = NULL;
-		i++;
-	}
-	free(strs);
-	return (NULL);
+	word_len = 0;
+	while (s[word_len] != c)
+		word_len++;
+	word_res = (char *) malloc(sizeof(char) * word_len + 1);
+	if (!word_res)
+		return (NULL);
+	word_res = ft_memcpy(word_res, s, word_len);
+	word_res[word_len] = '\0';
+	return (word_res);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		wordcount;
+	unsigned int	i;
+	char			**word_split;
 
 	if (!s)
-	{
-		strs = malloc(sizeof(char) * 1);
-		if (!strs)
-			return (NULL);
-		*strs = NULL;
-		return (strs);
-	}
-	wordcount = ft_count_words(s, c);
-	strs = malloc(sizeof(*strs) * (wordcount + 1));
-	if (!strs)
 		return (NULL);
-	if (ft_malloc_strs(strs, s, c))
+	i = 0;
+	word_split = (char **) malloc (sizeof(char *) * ft_countwords(s, c) + 1);
+	if (!word_split)
+		return (NULL);
+	while (i < ft_countwords(s, c))
 	{
-		ft_cpy_strs(strs, s, c);
-		strs[wordcount] = NULL;
+		while (*s == c)
+			s++;
+		word_split[i] = make_word(s, c);
+		if (!word_split[i])
+		{
+			free_split(word_split, i);
+			return (NULL);
+		}
+		s += ft_strlen(word_split[i]);
+		i++;
 	}
-	else
-		strs = ft_merror(strs);
-	return (strs);
+	word_split[i] = NULL;
+	return (word_split);
 }
+
+/* #include <stdio.h>
+
+int main(void)
+{
+    char **result;
+    int i;
+
+    // Test 1: Basic split by space
+    printf("Test 1: \"Hello World\" with space delimiter\n");
+    result = ft_split("Hello World", ' ');
+    i = 0;
+    while (result[i])
+    {
+        printf("[%d]: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    printf("\n");
+
+    // Test 2: Multiple delimiters
+    printf("Test 2: \"***Hello**World***\" with '*' delimiter\n");
+    result = ft_split("***Hello**World***", '*');
+    i = 0;
+    while (result[i])
+    {
+        printf("[%d]: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    printf("\n");
+	
+    // Test 2a: ONLY Multiple delimiters
+    printf("Test 2a: \"********\" with '*' delimiter\n");
+    result = ft_split("********", '*');
+    i = 0;
+    while (result[i])
+    {
+        printf("[%d]: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    printf("\n");
+
+    // Test 3: Empty string
+    printf("Test 3: Empty string with space delimiter\n");
+    result = ft_split("", ' ');
+    i = 0;
+    while (result[i])
+    {
+        printf("[%d]: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    printf("\n");
+
+    // Test 4: No delimiter in string
+    printf("Test 4: \"NoDelimiterHere\" with ',' delimiter\n");
+    result = ft_split("NoDelimiterHere", ',');
+    i = 0;
+    while (result[i])
+    {
+        printf("[%d]: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    printf("\n");
+
+    // Test 5: NULL string (should handle gracefully)
+    printf("Test 5: NULL string\n");
+    result = ft_split(NULL, ' ');
+    if (result == NULL)
+        printf("Correctly returned NULL for NULL input\n");
+    else
+    {
+        i = 0;
+        while (result[i])
+        {
+            printf("[%d]: %s\n", i, result[i]);
+            free(result[i]);
+            i++;
+        }
+        free(result);
+    }
+    
+    return (0);
+} */
