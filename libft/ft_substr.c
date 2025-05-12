@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 15:12:36 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 12:10:35 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 16:52:38 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
 	char	*src;
+	size_t	res_len;
 
 	if (!s)
 		return (NULL);
 	if (ft_strlen(s) <= start)
 		return (ft_strdup(""));
 	src = (char *)s + start;
-	if (ft_strlen(src) > len)
-		src[len] = '\0';
-	res = ft_strdup(src);
+	res_len = len + 1; 
+	if (ft_strlen(src) < len)
+		res_len = ft_strlen(src) + 1;
+	res = (char *) malloc(sizeof(char) * res_len);
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, src, res_len);
 	return (res);
 }
 
