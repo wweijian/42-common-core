@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 22:09:09 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/12 18:42:58 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 18:52:11 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,10 @@ char	**ft_split(char const *s, char c)
 	unsigned int	word_count;
 	char			**word_split;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	word_count = ft_countwords(s, c);
 	word_split = (char **) malloc (sizeof(char *) * (word_count + 1));
-	if (!word_split)
+	if (!word_split || !s)
 		return (NULL);
 	while (i < word_count)
 	{
@@ -91,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	return (word_split);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int main(void)
 {
@@ -181,4 +179,4 @@ int main(void)
     }
     
     return (0);
-}
+} */
