@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 22:09:09 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/12 10:36:09 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 18:42:58 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	free_split(char **word_split, unsigned int word_count)
 	i = 0;
 	while (i < word_count)
 	{
-		free(word_split);
+		free(word_split[i]);
 		i++;
 	}
 	free(word_split);
@@ -52,28 +52,29 @@ static char	*make_word(char const *s, char c)
 	char	*word_res;
 
 	word_len = 0;
-	while (s[word_len] != c)
+	while (s[word_len] != c && s[word_len])
 		word_len++;
-	word_res = (char *) malloc(sizeof(char) * word_len + 1);
+	word_res = (char *) malloc(sizeof(char) * (word_len + 1));
 	if (!word_res)
 		return (NULL);
-	word_res = ft_memcpy(word_res, s, word_len);
-	word_res[word_len] = '\0';
+	ft_strlcpy(word_res, s, word_len + 1);
 	return (word_res);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	i;
+	unsigned int	word_count;
 	char			**word_split;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	word_split = (char **) malloc (sizeof(char *) * ft_countwords(s, c) + 1);
+	word_count = ft_countwords(s, c);
+	word_split = (char **) malloc (sizeof(char *) * (word_count + 1));
 	if (!word_split)
 		return (NULL);
-	while (i < ft_countwords(s, c))
+	while (i < word_count)
 	{
 		while (*s == c)
 			s++;
@@ -90,7 +91,7 @@ char	**ft_split(char const *s, char c)
 	return (word_split);
 }
 
-/* #include <stdio.h>
+#include <stdio.h>
 
 int main(void)
 {
@@ -112,7 +113,7 @@ int main(void)
 
     // Test 2: Multiple delimiters
     printf("Test 2: \"***Hello**World***\" with '*' delimiter\n");
-    result = ft_split("***Hello**World***", '*');
+    result = ft_split("***Hello**World***HI***I***AM***", '*');
     i = 0;
     while (result[i])
     {
@@ -180,4 +181,4 @@ int main(void)
     }
     
     return (0);
-} */
+}
