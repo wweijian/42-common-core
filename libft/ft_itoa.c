@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:38:39 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/12 16:58:37 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 17:22:06 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	is_neg(int num)
 {
@@ -53,6 +54,7 @@ char	*ft_itoa(int n)
 	res = (char *) malloc(sizeof(char) * len + 1);
 	if (!res)
 		return (NULL);
+	res[len] = '\0';
 	while (len > 0)
 	{
 		res[len - 1] = num % 10 + '0';
@@ -64,7 +66,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-#include <limits.h>
+/* #include <limits.h>
 #include <stdio.h>
 
 int main ()
@@ -89,4 +91,4 @@ int main ()
 	free (s_min);
 	free (s_all);
 	free (s_negzero);
-}
+} */

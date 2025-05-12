@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 22:44:46 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 22:55:51 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 17:27:27 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-		(*f)(1, &s[i]);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 22:24:25 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 22:43:22 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 17:21:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (res[i])
 	{
-		res[i] = (*f)(1, s[i]);
+		res[i] = (*f)(i, s[i]);
 		i++;
 	}
 	return (res);
 }
 
-/* char	ft_transpose(unsigned int i, char c)
+char	ft_transpose(unsigned int i, char c)
 {
 	if (c == 'z' || c == 'Z')
 		c = c - 26 + i;
@@ -51,4 +51,4 @@ int main ()
 	printf("after:  %s\n", t);
 	free (s);
 	free (t);
-} */
+}

@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 23:20:39 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/09 23:55:12 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 17:28:29 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }
 
 /* int main ()
