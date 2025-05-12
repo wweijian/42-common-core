@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 11:09:37 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 16:56:16 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/12 15:59:21 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			total_size;
 
 	total_size = nmemb * size;
-	if (nmemb == 18446744073709551615UL || size == 18446744073709551615UL)
-		return (NULL);
+	if (size > 0 && nmemb > 18446744073709551615UL / size)
+        return (NULL);
 	res = (void *)malloc(total_size);
 	if (!res)
 		return (0);
