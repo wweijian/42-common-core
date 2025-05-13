@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 12:24:35 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/13 12:29:12 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/13 11:18:36 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/13 13:03:00 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* -----DO NOT SUBMIT---- */
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdio.h>
-#include "ft_printf.h"
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft/libft.h"
 
-int main (void)
-{
-	/* printf */
-	
-	printf("printf\n-----\n");
-	printf("hello\n");
-	
-	/* ft_printf */
-	
-	printf("ft_printf\n-----\n");
-	ft_printf("hello\n");
-}
+# if defined (__linux__)
+#  define PTRNULL "(nil)"
+# elif defined (__APPLE__)
+#  define PTRNULL "0x0"
+# endif
+
+int	ft_printf(const char *format, ...);
+int	print_format(char specifier, va_list ap);
+
+# endif
