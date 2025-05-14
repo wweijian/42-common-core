@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 12:24:35 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 16:17:10 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/14 16:11:14 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/14 16:18:43 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* -----DO NOT SUBMIT---- */
-
-#include <stdio.h>
-#include <string.h>
 #include "ft_printf.h"
 
-int main (void)
+int	ft_print_str(char *string, t_flags flags)
 {
-	char *name1 = strdup("allan");
-	char *name2 = strdup("beth");
-
-	printf("-----\nprintf:\n");
-	printf("hello %s and %s.\n", name1, name2);
-	printf("-----\nft_printf:\n");
-	ft_printf("hello %s and %s.\n", name1, name2);
+	ft_putstr_fd(string, 1);
 }

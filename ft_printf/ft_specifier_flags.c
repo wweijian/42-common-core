@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_specifier_flags.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 12:24:35 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 16:17:10 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/14 00:05:18 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/14 16:04:07 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* -----DO NOT SUBMIT---- */
-
-#include <stdio.h>
-#include <string.h>
 #include "ft_printf.h"
 
-int main (void)
+t_flags	ft_specifier_flags(char **format, va_list args)
 {
-	char *name1 = strdup("allan");
-	char *name2 = strdup("beth");
+	t_flags	flags;
 
-	printf("-----\nprintf:\n");
-	printf("hello %s and %s.\n", name1, name2);
-	printf("-----\nft_printf:\n");
-	ft_printf("hello %s and %s.\n", name1, name2);
+	flags.spec = 0;
+	flags.width = 0;
+	flags.left = 0;
+	flags.zero = 0;
+	flags.star = 0;
+	flags.precision = 0;
+	flags.hash = 0;
+	flags.space = 0;
+	flags.plus = 0;
+	return (flags);
 }
