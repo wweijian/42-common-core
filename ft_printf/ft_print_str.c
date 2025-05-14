@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:11:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 16:18:43 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:39:46 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 int	ft_print_str(char *string, t_flags flags)
 {
-	ft_putstr_fd(string, 1);
+	int	count;
+
+	count = write(1, string, ft_strlen(string));
+	(void) flags;
+
+	return (count);
 }

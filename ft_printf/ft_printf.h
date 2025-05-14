@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:18:36 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 00:20:27 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:35:11 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
 # if defined (__linux__)
@@ -38,5 +39,7 @@ typedef struct s_flags
 }		t_flags;
 
 int			ft_printf(const char *format, ...);
+t_flags	ft_specifier_flags(char **format, va_list args);
+int	ft_print_str(char *string, t_flags flags);
 
 # endif

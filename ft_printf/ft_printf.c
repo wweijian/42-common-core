@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 16:09:43 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:40:21 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	print_arg(char **format, va_list args)
 	t_flags	flags;
 
 	count = 0;
+	(*format)++;
 	flags = ft_specifier_flags(format, args);
 	// if (**format == 'c')
 	// 	count += ft_print_char(va_arg(args, int), flags);
@@ -41,7 +42,6 @@ static int	print_arg(char **format, va_list args)
 	// 	count += ft_print_ptr((unsigned long int)va_arg(args, void *), flags);
 	else
 		count += write(1, *format, 1);
-	(*format)++;
 	return (count);
 }
 

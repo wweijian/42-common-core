@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:05:18 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 16:04:07 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:28:40 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ t_flags	ft_specifier_flags(char **format, va_list args)
 	flags.space = 0;
 	flags.plus = 0;
 	return (flags);
+
+	(void) format;
+	(void) args;
 }
