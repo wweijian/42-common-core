@@ -51,11 +51,12 @@ number of character output supersedes field width
 
 ### The precision
 
-An optional precision, in the form of a period ('.') *followed by an optional decimal digit string*. *Instead of a decimal digit string one may write "*" or " *m$" (for some decimal integer m) to specify that the precision is given in the next argument, or in the m-th argument, respectively, which must be of type int.* If the precision is given as just '.', or the precision is negative, the precision is taken to be zero. This gives the minimum number of digits to appear for d, i, o, u, x, and X conversions, the number of digits to appear after the radix character for a, A, e, E, f, and F conversions, the maximum number of significant digits for g and G conversions, or the maximum number of characters to be printed from a string for s and S conversions
+An optional precision, in the form of a period ('.') *followed by an optional decimal digit string*. *Instead of a decimal digit string one may write "*" or " *m$" (for some decimal integer m) to specify that the precision is given in the next argument, or in the m-th argument, respectively, which must be of type int.* If the precision is given as just '.', or the precision is negative, the precision is taken to be zero. This gives the minimum number of digits to appear for d, i, o, u, x, and X conversions, the number of digits to appear after the radix character for a, A, e, E, f, and F conversions, the maximum number of significant digits for g and G conversions, *or the maximum number of characters to be printed from a string for s and S conversions*
 
 Think of it as: "Always use at least this many digits. Add leading zeroes if needed.
+Precision is at most a certain amount for strings
 
-Precision supersedes fieldwidth
+Precision supersedes field width
 
 ## <stdarg.h>
 
@@ -147,9 +148,26 @@ main.c:46:39: error: format specifies type 'unsigned int' but the argument has t
 	plus ('+'): 	polarity to be placed before a number [+ overrdes space] 
 						--> only affects signed conversion
 	zero (0):		pads outputs with zero [0 flag is ignored with conversion]
-						--> 
+						--> only affects number 
 	field width ()
 						--> affects all
 	precision (.):	Minimum number to ouput, adds leading zero
 						--> affects numeric conversions and strings
 ```
+
+- for strings 
+	we will take precision / strlen, whichever is more
+	and we will take field width or the above, whichever is more
+
+| Specifier | `-` | `+` | `space` | `0` | `#` |
+|-----------|-----|-----|---------|-----|-----|
+| d, i      | ✓   | ✓   | ✓       | ✓   | ✗   |
+| u         | ✓   | ✗   | ✗       | ✓   | ✗   | done
+| o, x, X   | ✓   | ✗   | ✗       | ✓   | ✓   |
+| f, e, E   | ✓   | ✓   | ✓       | ✓   | ✓   |
+| c         | ✓   | ✗   | ✗       | ✗   | ✗   | done
+| s         | ✓   | ✗   | ✗       | ✗   | ✗   | done
+| p         | ✓   | ✗   | ✗       | ✗   | ✗   |
+
+
+clear; ccc *.c -L. libft.a;

@@ -1,43 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 12:24:35 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 16:10:20 by wjhoe            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* -----DO NOT SUBMIT---- */
-
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
 #include "ft_printf.h"
-
-int main()
-{
-	int		bytes_written = 0;
-	int		ftbytes_written = 0;
-
-	/*----------------- CHARACTER PRINT -----------------*/
-	char	c1 = 'a';
-	char	c2 = '%';
-
-	printf("---------------------\nTEST: CHARACTER PRINT\n");
-	printf("printf:\t\t");
-	bytes_written = printf("|%5c|\t\t|%-5c|\n", c1, c2);
-	printf("ft_printf:\t");
-	fflush(stdout);
-	ftbytes_written = ft_printf("|%5c|\t\t|%-5c|\n", c1, c2);
-	printf("\nbytes:    %d\t\tftbytes:  %d\n", bytes_written, ftbytes_written);
-	if (bytes_written != ftbytes_written)
-		printf("WRONG BYTES PRINTED\n");
-
-}
-
 
 /* STANDARD PRINT */
 
@@ -139,7 +103,7 @@ int main()
 // 	printf("\nbytes:    %d\t\tftbytes:  %d\n", bytes_written, ftbytes_written);
 // 	if (bytes_written != ftbytes_written)
 // 		printf("WRONG BYTES PRINTED\n");
-	
+
 // 	/*----------------- PERCENT PRINT -----------------*/
 // 	printf("---------------------\nTEST: PERCENT PRINT\n");
 // 	printf("printf:\t\t");

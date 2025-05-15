@@ -6,34 +6,28 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 19:34:08 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 20:05:07 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 22:34:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* 
+	unsigned takes the following flags: 0 - 
+
+	0:
+	if precision is given, 0 is ignored
+
+*/
+
 #include "ft_printf.h"
 
-static int	unsigned_len(unsigned int num)
-{
-	int	count;
-
-	count = 0;
-
-	while (num > 0)
-	{
-		num = num / 10;
-		count++;
-	}
-	return (count);
-}
-
-static char	*ft_utoa(unsigned int num)
+static char	*ft_utoa(unsigned int num, t_flags flags)
 {
 	char	*str;
-	int		len; 
+	int		len;
 
-	len = unsigned_len(num);
+	len = count_digits(num, flags);
 	str = malloc(sizeof(*str) * (len + 1));
-	while(len > 0)
+	while (len > 0)
 	{
 		str[len - 1] = num % 10 + '0';
 		num = num / 10;
@@ -42,15 +36,38 @@ static char	*ft_utoa(unsigned int num)
 	return (str);
 }
 
+static int	write_num(char *str, int num_len, t_flags flags)
+{
+	int	count;
+
+	count = 0;
+	while (flags.precision-- > num_len)
+		count += write(1, "0", 1);
+	count += write (1, str, num_len);
+
+	return (count);
+}
+
 int	ft_print_unsigned(unsigned int num, t_flags flags)
 {
 	char	*str;
+	int		num_len;
 	int		count;
 
-	str = ft_utoa(num);
-	count = unsigned_len(num);
-	write(1, str, count);
+	count = 0;
+	str = ft_utoa(num, flags);
+	num_len = count_digits(num, flags);
+	if (flags.left)
+		count += write_num(str, num_len, flags);
+	while (flags.width-- > max_print(flags.precision, num_len))
+	{
+		if (flags.zero)
+			count += write(1, "0", 1);
+		else
+			count += write(1, " ", 1);
+	}
+	if (!flags.left)
+		count += write_num(str, num_len, flags);
 	free (str);
 	return (count);
-	(void) flags;
 }

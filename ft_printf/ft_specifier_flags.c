@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:05:18 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 15:08:49 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 20:27:27 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 	plus ('+'): 	polarity to be placed before a number [+ overrdes space] 
 						--> only affects signed conversion
 	zero (0):		pads outputs with zero [0 flag is ignored with conversion]
-						--> 
+						--> affects all
 	field width ()
 						--> affects all
 	precision (.):	Minimum number to ouput, adds leading zero

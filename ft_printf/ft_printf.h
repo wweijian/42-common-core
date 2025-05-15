@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:18:36 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 14:39:23 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 22:15:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_flags
 	int	plus;
 }		t_flags;
 
+/* PRIMARY FUNCTION */
 int		ft_printf(const char *format, ...);
 
 /* SPECIFIER FUNCTIONS */
@@ -51,5 +52,7 @@ int		ft_print_ptr(unsigned long long ptr, t_flags flags);
 /* ANCILLIARY FUNCTIONS */
 int		hex_len(unsigned long long num);
 void	write_hex(unsigned long long num, char hex_case);
+int		max_print(int num1, int num2);
+int		count_digits(long num, t_flags flags);
 
 # endif
