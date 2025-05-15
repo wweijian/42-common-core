@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 14:01:42 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/08 15:28:04 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 14:34:18 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strdup(const char *s)
 {
 	char	*res;
 	size_t	len;
-	int		i;
+	size_t	i;
 
 	if (s == NULL)
 		return (NULL);
