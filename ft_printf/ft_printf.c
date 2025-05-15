@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 20:32:53 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 11:37:04 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,25 @@
 
 static int	print_arg(char **format, va_list args)
 {
-	t_flags	flags;
+	t_flags	*flags;
 
 	(*format)++;
-	flags = ft_specifier_flags(format, args);
+	flags = ft_secifier_flags(format);
 	if (**format == 'c')
-		return (ft_print_char(va_arg(args, int), flags));
+		return (ft_print_char(va_arg(args, int), *flags));
 	else if (**format == 's')
-		return (ft_print_str(va_arg(args, char *), flags));
+		return (ft_print_str(va_arg(args, char *), *flags));
 	else if (**format == 'd' || **format == 'i')
-		return (ft_print_num(va_arg(args, int), flags));
+		return (ft_print_num(va_arg(args, int), *flags));
 	else if (**format == 'x' || **format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), **format, flags));
+		return (ft_print_hex(va_arg(args, unsigned int), **format, *flags));
 	else if (**format == 'u')
-		return (ft_print_unsigned(va_arg(args, unsigned int), flags));
+		return (ft_print_unsigned(va_arg(args, unsigned int), *flags));
 	else if (**format == 'p')
-		return (ft_print_ptr((unsigned long int)va_arg(args, void *), flags));
+		return (ft_print_ptr((unsigned long int)va_arg(args, void *), *flags));
 	else
 		return (write(1, *format, 1));
+	free(flags);
 	return (0);
 }
 
