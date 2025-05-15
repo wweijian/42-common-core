@@ -6,26 +6,19 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 11:37:04 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/15 15:22:03 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-/* static int	print_arg(char **string, va_list args)
-{
-	*string = *string + 1;
-	(void) args;
-	return (1);
-} */
-
 static int	print_arg(char **format, va_list args)
 {
 	t_flags	*flags;
 
 	(*format)++;
-	flags = ft_secifier_flags(format);
+	flags = ft_specifier_flags(format);
 	if (**format == 'c')
 		return (ft_print_char(va_arg(args, int), *flags));
 	else if (**format == 's')

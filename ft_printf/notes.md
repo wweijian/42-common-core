@@ -135,3 +135,21 @@ main.c:46:39: error: format specifies type 'unsigned int' but the argument has t
 
 - ptr addresses are stored as numbers (unsigned long long)
 	returned as a hexadecimal
+
+```
+	Flags: - 0 . # ' ' + 
+	hash (#): 		adds 0x to X and x conversions 
+						--> only affects X
+	left (-): 		left align to field width [overrides 0] 
+						--> ALL conversions
+	blank (' '): 	blank before positive numbers IN SIGNED conversion 
+						--> only affects signed conversion
+	plus ('+'): 	polarity to be placed before a number [+ overrdes space] 
+						--> only affects signed conversion
+	zero (0):		pads outputs with zero [0 flag is ignored with conversion]
+						--> 
+	field width ()
+						--> affects all
+	precision (.):	Minimum number to ouput, adds leading zero
+						--> affects numeric conversions and strings
+```
