@@ -5,7 +5,7 @@
 
 /* BONUS: %U */
 
-int main(void) 
+/* int main(void) 
 {
     unsigned int u1 = UINT_MAX;
     unsigned int u2 = 0;
@@ -119,3 +119,4 @@ int main(void)
     return 0;
 }
 
+ */

@@ -6,33 +6,59 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:26:33 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/14 20:51:01 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 09:56:01 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_hex(unsigned long long num, char hex_case)
+/* 
+	Flags: - 0 . # ' ' + 
+	left (-): 		left align to field width [overrides 0] 
+						--> ALL conversions
+	zero (0):		pads outputs with zero [0 flag is ignored with conversion]
+						--> 
+	field width ()
+						--> affects all
+	precision (.):	Minimum number to ouput, adds leading zero
+						--> affects numeric conversions and strings
+*/
+
+int	write_xtoa(unsigned int num, int len, char hex_case)
 {
-	char			*hex_base;
+	char	*res;
+	char	*hex_base;
+	int		i;
+	int		count;
 
 	hex_base = "0123456789ABCDEF";
-	if (hex_case == 'x')
-		hex_base = "0123456789abcdef";
-	if (num > 16)
+	i = len;
+	count = 0;
+	res = ft_calloc((len + 1), sizeof(*res));
+	if (!res)
+		res = NULL;
+	while (i-- > 0)
 	{
-		write_hex(num / 16, hex_case);
-		write_hex(num % 16, hex_case);
+		res[i] = hex_base[num % 16];
+		num = num / 16;
 	}
-	else
-		write (1, &hex_base[num], 1);
+	if (hex_case == 'x')
+	{
+		while (i++ <= len)
+			res[i] = ft_tolower(res[i]);
+	}
+	count += write(1, res, len);
+	free (res);
+	return (count);
 }
 
-int	hex_len(unsigned long long num)
+int	hex_len(unsigned long long num, t_flags flags)
 {
 	int	len;
 
 	len = 0;
+	if (num == 0 && flags.precision == 0)
+		return (0);
 	if (num == 0)
 		return (1);
 	while (num > 0)
@@ -43,13 +69,35 @@ int	hex_len(unsigned long long num)
 	return (len);
 }
 
+static int	write_hex(int num, int len, char hex_case, t_flags flags)
+{
+	int		count;
+
+	count = 0;
+	count += write_zero(len, flags);
+	count += write_xtoa(num, len, hex_case);
+	return (count);
+}
+
 int	ft_print_hex(unsigned int num, char hex_case, t_flags flags)
 {
-	int				count;
+	int		count;
+	int		len;
 
-	count = hex_len(num);
-	write_hex(num, hex_case);
-	(void) flags;
+	count = 0;
+	len = hex_len(num, flags);
+	if (flags.hash == 1 && num > 0)
+	{
+		if (hex_case == 'X')
+			count += write(1, "0X", 2);
+		else if (hex_case == 'x')
+			count += write(1, "0x", 2);
+	}
+	if (flags.left)
+		count += write_hex(num, len, hex_case, flags);
+	count += write_padding(len, flags);
+	if (!flags.left)
+		count += write_hex(num, len, hex_case, flags);
 	return (count);
 }
 

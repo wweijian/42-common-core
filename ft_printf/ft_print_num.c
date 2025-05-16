@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:33:29 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 22:15:35 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 09:00:26 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@
 	precision (.):	Minimum number to ouput, adds leading zero
 						--> affects numeric conversions and strings
 */
-
-static int	write_zero(int num_len, t_flags flags)
-{
-	int	count;
-
-	count = 0;
-	if (flags.precision == -1)
-		return (count);
-	while (flags.precision > num_len)
-	{
-		count += write(1, "0", 1);
-		flags.precision--;
-	}
-
-	return (count);
-}
 
 static int	write_sign(int num, t_flags flags)
 {
