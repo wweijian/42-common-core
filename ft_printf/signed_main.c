@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signed_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:24:35 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 22:32:17 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 13:31:41 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <string.h>
 #include <limits.h>
 #include "ft_printf.h"
-
-/* int main(void) {
+/* 
+int main(void) {
     int i1 = INT_MAX;
     int i2 = INT_MIN;
     int i3 = 42;

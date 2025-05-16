@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:26:33 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 11:31:49 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 12:40:15 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 						--> affects numeric conversions and strings
 */
 
-int	write_xtoa(unsigned long num, int len, char hex_case)
+int	write_xtoa(unsigned long long num, int len, char hex_case)
 {
 	char	*res;
 	char	*hex_base;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 19:34:08 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 09:49:22 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 13:32:18 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,17 @@ static int	write_num(char *str, int num_len, t_flags flags)
 int	ft_print_unsigned(unsigned int num, t_flags flags)
 {
 	char	*str;
-	int		num_len;
+	int		len;
 	int		count;
 
 	count = 0;
 	str = ft_utoa(num, flags);
-	num_len = count_digits(num, flags);
+	len = count_digits(num, flags);
 	if (flags.left)
-		count += write_num(str, num_len, flags);
-	while (flags.width-- > max_print(flags.precision, num_len))
-	{
-		if (flags.zero)
-			count += write(1, "0", 1);
-		else
-			count += write(1, " ", 1);
-	}
+		count += write_num(str, len, flags);
+	count += write_padding(len, flags);
 	if (!flags.left)
-		count += write_num(str, num_len, flags);
+		count += write_num(str, len, flags);
 	free (str);
 	return (count);
 }

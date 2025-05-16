@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:33:29 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 09:00:26 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 13:30:53 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,20 @@ static int	write_num(int num, int num_len, t_flags flags)
 int	ft_print_num(int num, t_flags flags)
 {
 	int	count;
-	int	num_len;
+	int	len;
 
 	count = 0;
-	num_len = count_digits(num, flags);
+	len = count_digits(num, flags);
 	if (flags.left)
-		count += write_num(num, num_len, flags);
+		count += write_num(num, len, flags);
 	if (num < 0 || flags.space || flags.plus)
 	{
 		flags.precision++;
-		num_len++;
+		len++;
 	}
-	while (flags.width-- > max_print(flags.precision, num_len))
-	{
-		if (flags.zero)
-			count += write(1, "0", 1);
-		else
-			count += write(1, " ", 1);
-	}
+	count += write_padding(len, flags);
 	if (!flags.left)
-		count += write_num(num, num_len, flags);
+		count += write_num(num, len, flags);
 	return (count);
 }
 

@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 20:25:05 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 12:59:57 by wjhoe            ###   ########.fr       */
+/*   Created: 2025/05/16 12:55:53 by wjhoe             #+#    #+#             */
+/*   Updated: 2025/05/16 14:09:48 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	write_address(unsigned long long num, int len)
+int ft_print_null(t_flags flags)
 {
-	int		count;
+	int	count;
 
 	count = 0;
-	count += write(1, "0x", 2);
-	count += write_xtoa(num, len, 'x');
+	if (flags.left)
+		count += write (1, "(nil)", 5);
+	count += write_padding(3, flags);
+	if (!flags.left)
+		count += write (1, "(nil)", 5);
 	return (count);
 }
 
-int	ft_print_ptr(unsigned long long num, t_flags flags)
+int ft_print_null_str(t_flags flags)
 {
 	int		count;
 	int		len;
+	char	*str;
 
 	count = 0;
-	flags.zero = 0;
-	flags.hash = 1;
-	if (num == 0)
-	{
-		count += ft_print_null(flags);
-		return (count);
-	}
+	if (flags.precision > 6)
+		str = ft_strdup("(null)");
 	else
-		len = hex_len(num, flags);
+		str = ft_strdup("");
+	len = ft_strlen(str);
 	if (flags.left)
-		count += write_address(num, len);
+		count += write(1, str, len);
 	count += write_padding(len, flags);
 	if (!flags.left)
-		count += write_address(num, len);
+		count += write(1, str, len);
+	free(str);
 	return (count);
 }
-
