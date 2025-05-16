@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_specifier_flags.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:05:18 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/15 20:27:27 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 15:12:14 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_flags	*flags_init(void)
 {
 	t_flags	*flags;
 
-	flags = malloc(sizeof(t_flags));
+	flags = malloc(sizeof(*flags));
 	if (!flags)
 		return (NULL);
 	flags->width = 0;

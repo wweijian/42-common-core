@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 14:16:40 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 15:04:29 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	print_arg(char **format, va_list args)
 	if (**format == 'c')
 		return (ft_print_char(va_arg(args, int), *flags));
 	else if (**format == 's')
-		return (ft_print_str(va_arg(args, char *), *flags));
+		return (ft_print_str(va_arg(args, char*), *flags));
 	else if (**format == 'd' || **format == 'i')
 		return (ft_print_num(va_arg(args, int), *flags));
 	else if (**format == 'x' || **format == 'X')

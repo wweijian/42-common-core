@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 12:55:53 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 14:09:48 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 14:41:04 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int ft_print_null_str(t_flags flags)
 	if (flags.precision > 6)
 		str = ft_strdup("(null)");
 	else
+	{
+		flags.precision = 0;
 		str = ft_strdup("");
+	}
 	len = ft_strlen(str);
 	if (flags.left)
 		count += write(1, str, len);
