@@ -2,7 +2,7 @@
 #include <limits.h>
 #include "ft_printf.h"
 
-int main(void) {
+/* int main(void) {
     unsigned int x1 = 0;
     unsigned int x2 = 42;
     unsigned int x3 = 305441741; // 0x1234ABCD
@@ -133,3 +133,4 @@ int main(void) {
 
     return 0;
 }
+ */

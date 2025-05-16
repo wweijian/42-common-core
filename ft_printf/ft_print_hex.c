@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:26:33 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 09:56:01 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 11:31:49 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 						--> affects numeric conversions and strings
 */
 
-int	write_xtoa(unsigned int num, int len, char hex_case)
+int	write_xtoa(unsigned long num, int len, char hex_case)
 {
 	char	*res;
 	char	*hex_base;
@@ -52,7 +52,7 @@ int	write_xtoa(unsigned int num, int len, char hex_case)
 	return (count);
 }
 
-int	hex_len(unsigned long long num, t_flags flags)
+int	hex_len(unsigned long int num, t_flags flags)
 {
 	int	len;
 
@@ -69,7 +69,7 @@ int	hex_len(unsigned long long num, t_flags flags)
 	return (len);
 }
 
-static int	write_hex(int num, int len, char hex_case, t_flags flags)
+static int	write_hex(unsigned int num, int len, char hex_case, t_flags flags)
 {
 	int		count;
 
