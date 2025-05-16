@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:26:33 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 12:40:15 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 16:50:05 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int	write_xtoa(unsigned long long num, int len, char hex_case)
 	}
 	if (hex_case == 'x')
 	{
-		while (i++ <= len)
+		while (i++ < len)
 			res[i] = ft_tolower(res[i]);
+
 	}
 	count += write(1, res, len);
 	free (res);

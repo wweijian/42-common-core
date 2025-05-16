@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 15:04:29 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 17:17:50 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,27 @@
 static int	print_arg(char **format, va_list args)
 {
 	t_flags	*flags;
+	int	count;
 
+	count = 0;
 	(*format)++;
 	flags = ft_specifier_flags(format);
 	if (**format == 'c')
-		return (ft_print_char(va_arg(args, int), *flags));
+		count += ft_print_char(va_arg(args, int), *flags);
 	else if (**format == 's')
-		return (ft_print_str(va_arg(args, char*), *flags));
+		count += ft_print_str(va_arg(args, char*), *flags);
 	else if (**format == 'd' || **format == 'i')
-		return (ft_print_num(va_arg(args, int), *flags));
+		count += ft_print_num(va_arg(args, int), *flags);
 	else if (**format == 'x' || **format == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), **format, *flags));
+		count += ft_print_hex(va_arg(args, unsigned int), **format, *flags);
 	else if (**format == 'u')
-		return (ft_print_unsigned(va_arg(args, unsigned int), *flags));
+		count += ft_print_unsigned(va_arg(args, unsigned int), *flags);
 	else if (**format == 'p')
-		return (ft_print_ptr((unsigned long int)va_arg(args, void *), *flags));
+		count += ft_print_ptr((unsigned long int)va_arg(args, void *), *flags);
 	else
 		return (write(1, *format, 1));
 	free(flags);
-	return (0);
+	return (count);
 }
 
 int	ft_printf(const char *format, ...)
@@ -44,7 +46,7 @@ int	ft_printf(const char *format, ...)
 	char	*format_dup;
 	char	*format_dup_start;
 
-	if (!format || *format == '\0')
+	if (!format || !*format)
 		return (0);
 	count = 0;
 	format_dup = ft_strdup(format);
