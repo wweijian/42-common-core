@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 20:25:05 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 11:31:41 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/16 11:36:41 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 	(void) flags;
 } */
 
-static int	write_address(unsigned int num, int len, char hex_case, t_flags flags)
+static int	write_address(unsigned int num, int len)
 {
 	int		count;
 
 	count = 0;
-	count += write(1, "0x, 2");
-	count += write_xtoa(num, len, hex_case);
+	count += write(1, "0x", 2);
+	count += write_xtoa(num, len, 'x');
 	return (count);
 }
 
@@ -41,10 +41,10 @@ int	ft_print_ptr(unsigned long int num, t_flags flags)
 	flags.zero = 0;
 	len = hex_len(num, flags);
 	if (flags.left)
-		count += write_address(num, len, flags);
+		count += write_address(num, len);
 	count += write_padding(len, flags);
 	if (!flags.left)
-		count += write_hex(num, len, flags);
+		count += write_address(num, len);
 	return (count);
 }
 
