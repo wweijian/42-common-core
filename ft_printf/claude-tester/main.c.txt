@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tester                                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/16                               #+#    #+#             */
+/*   Updated: 2025/05/16                              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf_tester.h"
+
+int	main(void)
+{
+	ft_printf("\n===== FT_PRINTF COMPREHENSIVE TEST SUITE =====\n\n");
+	
+	test_percent();
+	ft_printf("\n\n");
+	
+	test_char();
+	ft_printf("\n\n");
+	
+	test_string();
+	ft_printf("\n\n");
+	
+	test_pointer();
+	ft_printf("\n\n");
+	
+	test_decimal();
+	ft_printf("\n\n");
+	
+	test_unsigned();
+	ft_printf("\n\n");
+	
+	test_hex_lower();
+	ft_printf("\n\n");
+	
+	test_hex_upper();
+	
+	ft_printf("\n\n===== TEST SUITE COMPLETE =====\n");
+	return (0);
+}
+
+void	print_test_header(const char *test_name)
+{
+	ft_printf("\n\n==================================================\n");
+	ft_printf("              TESTING %%%s FORMAT                ", test_name);
+	ft_printf("\n==================================================\n");
+}
+
+void	print_test_subheader(const char *subheader)
+{
+	ft_printf("\n--------------------------------------------------\n");
+	ft_printf(" %s ", subheader);
+	ft_printf("\n--------------------------------------------------\n");
+}
