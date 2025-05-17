@@ -8,8 +8,9 @@ int main ()
 	// int	bytes_written;
 	// int	ftbytes_written;
 	
-	printf(" |%-10d| \n", INT_MIN);
-	ft_printf(" |%-10d| \n", INT_MIN);
+	// printf(" |%-1d| \n", 10);
+	// ft_printf(" |%-1d| \n", 10);
+	ft_printf("| % s|", "");
 }
 
 // TEST(5, print(" %.s ", "-"));

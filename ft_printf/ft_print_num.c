@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:33:29 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/17 09:28:23 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/17 10:35:36 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,12 @@ static int	write_digit(int num, t_flags flags)
 		return (count);
 	if (num < 0)
 		num *= -1;
-	str = ft_itoa(num);
+	if (num == 0)
+		str = ft_strdup("0");
+	else if (num > 0)
+		str = ft_itoa(num);
+	else
+		str = ft_strdup("");
 	count += write(1, str, ft_strlen(str));
 	free(str);
 	return (count);
@@ -84,21 +89,20 @@ int	ft_print_num(int num, t_flags flags)
 
 	count = 0;
 	len = count_digits(num, flags);
+	if (num < 0)
+		flags.plus = 1;
 	if (flags.left)
 	{
 		count += write_sign(num, flags);
 		count += write_num(num, len, flags);
+		count += write_padding(len, flags);
 	}
-	if (num < 0 || flags.space || flags.plus)
+	if (!flags.left)
 	{
-		flags.precision++;
-		len++;
-	}
-	if (!flags.left)
 		count += write_sign(num, flags);
-	count += write_padding(len, flags);
-	if (!flags.left)
+		count += write_padding(len, flags);
 		count += write_num(num, len, flags);
+	}
 	return (count);
 }
 

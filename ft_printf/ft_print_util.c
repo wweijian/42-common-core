@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:38:26 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 09:55:48 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/17 10:35:15 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ int	write_padding(int len, t_flags flags)
 	{
 		flags.precision += 2;
 		len += 2;
+	}
+	if (flags.space || flags.plus)
+	{
+		flags.precision++;
+		len++;
 	}
 	while (flags.width-- > max_print(flags.precision, len))
 	{
