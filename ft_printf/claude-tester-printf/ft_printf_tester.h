@@ -1,12 +1,13 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf_tester.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tester                                     +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16                               #+#    #+#             */
-/*   Updated: 2025/05/16                              ###   ########.fr       */
+/*   Created: 2025/05/16 00:00:00 by                   #+#    #+#             */
+/*   Updated: 2025/05/17 19:07:52 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +30,7 @@ void	test_string(void);
 void	test_pointer(void);
 void	test_decimal(void);
 void	test_unsigned(void);
-void	test_hex_lower(void);
-void	test_hex_upper(void);
+void	test_hex(void);
 
 /* Helper function prototypes */
 void	print_test_header(const char *test_name);

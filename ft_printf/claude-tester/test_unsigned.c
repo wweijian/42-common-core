@@ -14,7 +14,7 @@
 
 void	test_unsigned_basic(void)
 {
-	print_header("UNSIGNED INTEGER - BASIC TESTS");
+	print_test_subheader("UNSIGNED INTEGER - BASIC TESTS");
 	
 	// Basic unsigned integer tests
 	ft_printf("Basic unsigned: %u\n", 42);
@@ -25,13 +25,12 @@ void	test_unsigned_basic(void)
 	// Basic with larger values
 	ft_printf("Large value: %u\n", 999999999);
 	ft_printf("Large value: %u\n", 4294967295u); // UINT_MAX for 32-bit systems
-	
-	print_divider();
+
 }
 
 void	test_unsigned_width(void)
 {
-	print_header("UNSIGNED INTEGER - WIDTH TESTS");
+	print_test_subheader("UNSIGNED INTEGER - WIDTH TESTS");
 	
 	// Width tests
 	ft_printf("Width 10: '%10u'\n", 42);
@@ -53,13 +52,12 @@ void	test_unsigned_width(void)
 	// Zero padding with left justification (left justification should take precedence)
 	ft_printf("Width 10, zero-padded, left-justified: '%-010u'\n", 42);
 	ft_printf("Width 20, zero-padded, left-justified: '%-020u'\n", 12345);
-	
-	print_divider();
+
 }
 
 void	test_unsigned_precision(void)
 {
-	print_header("UNSIGNED INTEGER - PRECISION TESTS");
+	print_test_subheader("UNSIGNED INTEGER - PRECISION TESTS");
 	
 	// Precision tests
 	ft_printf("Precision 5: '%.5u'\n", 42);
@@ -74,13 +72,12 @@ void	test_unsigned_precision(void)
 	// Precision 0 with explicitly specified value
 	ft_printf("Precision 0, non-zero with explicit dot: '%.u'\n", 42);
 	ft_printf("Precision 0, zero with explicit dot: '%.u'\n", 0);  // Should print nothing for 0 value
-	
-	print_divider();
+
 }
 
 void	test_unsigned_width_precision(void)
 {
-	print_header("UNSIGNED INTEGER - WIDTH AND PRECISION TESTS");
+	print_test_subheader("UNSIGNED INTEGER - WIDTH AND PRECISION TESTS");
 	
 	// Width and precision
 	ft_printf("Width 10, Precision 5: '%10.5u'\n", 42);
@@ -98,13 +95,12 @@ void	test_unsigned_width_precision(void)
 	ft_printf("Width 10, Precision 5, zero-padded: '%010.5u'\n", 42);
 	ft_printf("Width 10, Precision 0, zero-padded, non-zero: '%010.0u'\n", 42);
 	ft_printf("Width 10, Precision 0, zero-padded, zero: '%010.0u'\n", 0);
-	
-	print_divider();
+
 }
 
 void	test_unsigned_edge_cases(void)
 {
-	print_header("UNSIGNED INTEGER - EDGE CASES");
+	print_test_subheader("UNSIGNED INTEGER - EDGE CASES");
 	
 	// Edge cases
 	ft_printf("UINT_MAX: '%u'\n", UINT_MAX);
@@ -124,13 +120,12 @@ void	test_unsigned_edge_cases(void)
 	// Unusual combinations
 	ft_printf("Width 0, Precision 0, zero value: '%0.0u'\n", 0);
 	ft_printf("Width 1, Precision 0, zero value: '%1.0u'\n", 0);
-	
-	print_divider();
+
 }
 
 void	test_unsigned_flag_combinations(void)
 {
-	print_header("UNSIGNED INTEGER - FLAG COMBINATIONS");
+	print_test_subheader("UNSIGNED INTEGER - FLAG COMBINATIONS");
 	
 	// Testing valid flag combinations for unsigned
 	// Note: '+' and ' ' flags are not applicable for unsigned values
@@ -159,8 +154,7 @@ void	test_unsigned_flag_combinations(void)
 	
 	// Multiple flags
 	ft_printf("All flags (many should be ignored): '%+-0# 10.5u'\n", 42);
-	
-	print_divider();
+
 }
 
 void	test_unsigned(void)

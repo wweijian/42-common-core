@@ -14,7 +14,7 @@
 
 void	test_hex_basic(void)
 {
-	print_header("HEXADECIMAL - BASIC TESTS");
+	print_test_subheader("HEXADECIMAL - BASIC TESTS");
 	
 	// Basic lowercase hex tests
 	ft_printf("Basic lowercase hex: %x\n", 42);
@@ -36,13 +36,11 @@ void	test_hex_basic(void)
 	ft_printf("Value 15 (f/F): Lowercase: %x, Uppercase: %X\n", 15, 15);
 	ft_printf("Value 255 (ff/FF): Lowercase: %x, Uppercase: %X\n", 255, 255);
 	ft_printf("Value 4096 (1000): Lowercase: %x, Uppercase: %X\n", 4096, 4096);
-	
-	print_divider();
 }
 
 void	test_hex_width(void)
 {
-	print_header("HEXADECIMAL - WIDTH TESTS");
+	print_test_subheader("HEXADECIMAL - WIDTH TESTS");
 	
 	// Width tests for lowercase hex
 	ft_printf("Width 10 lowercase: '%10x'\n", 42);
@@ -79,13 +77,11 @@ void	test_hex_width(void)
 	// Zero padding with left justification (left justification should take precedence)
 	ft_printf("Width 10, zero-padded, left-justified lowercase: '%-010x'\n", 42);
 	ft_printf("Width 10, zero-padded, left-justified uppercase: '%-010X'\n", 42);
-	
-	print_divider();
 }
 
 void	test_hex_precision(void)
 {
-	print_header("HEXADECIMAL - PRECISION TESTS");
+	print_test_subheader("HEXADECIMAL - PRECISION TESTS");
 	
 	// Precision tests for lowercase hex
 	ft_printf("Precision 5 lowercase: '%.5x'\n", 42);
@@ -110,13 +106,11 @@ void	test_hex_precision(void)
 	ft_printf("Precision 0, zero with explicit dot lowercase: '%.x'\n", 0);
 	ft_printf("Precision 0, non-zero with explicit dot uppercase: '%.X'\n", 42);
 	ft_printf("Precision 0, zero with explicit dot uppercase: '%.X'\n", 0);
-	
-	print_divider();
 }
 
 void	test_hex_width_precision(void)
 {
-	print_header("HEXADECIMAL - WIDTH AND PRECISION TESTS");
+	print_test_subheader("HEXADECIMAL - WIDTH AND PRECISION TESTS");
 	
 	// Width and precision for lowercase hex
 	ft_printf("Width 10, Precision 5 lowercase: '%10.5x'\n", 42);
@@ -145,13 +139,11 @@ void	test_hex_width_precision(void)
 	// Width, precision and zero padding (precision should override zero padding)
 	ft_printf("Width 10, Precision 5, zero-padded lowercase: '%010.5x'\n", 42);
 	ft_printf("Width 10, Precision 5, zero-padded uppercase: '%010.5X'\n", 42);
-	
-	print_divider();
 }
 
 void	test_hex_hash_flag(void)
 {
-	print_header("HEXADECIMAL - HASH FLAG TESTS");
+	print_test_subheader("HEXADECIMAL - HASH FLAG TESTS");
 	
 	// Hash flag adds "0x" prefix for lowercase hex
 	ft_printf("Hash flag lowercase: '%#x'\n", 42);
@@ -184,13 +176,11 @@ void	test_hex_hash_flag(void)
 	ft_printf("Hash flag with width 10, precision 5 uppercase: '%#10.5X'\n", 42);
 	ft_printf("Hash flag with width 10, precision 0, zero lowercase: '%#10.0x'\n", 0);
 	ft_printf("Hash flag with width 10, precision 0, zero uppercase: '%#10.0X'\n", 0);
-	
-	print_divider();
 }
 
 void	test_hex_flag_combinations(void)
 {
-	print_header("HEXADECIMAL - FLAG COMBINATIONS");
+	print_test_subheader("HEXADECIMAL - FLAG COMBINATIONS");
 	
 	// Testing valid flag combinations for hex
 	// Note: '+' and ' ' flags are not applicable for hex values
@@ -229,13 +219,11 @@ void	test_hex_flag_combinations(void)
 	// Multiple flags
 	ft_printf("All flags lowercase: '%+-0# 10.5x'\n", 42);
 	ft_printf("All flags uppercase: '%+-0# 10.5X'\n", 42);
-	
-	print_divider();
 }
 
 void	test_hex_edge_cases(void)
 {
-	print_header("HEXADECIMAL - EDGE CASES");
+	print_test_subheader("HEXADECIMAL - EDGE CASES");
 	
 	// Edge cases
 	ft_printf("INT_MAX lowercase: '%x'\n", INT_MAX);
@@ -276,8 +264,6 @@ void	test_hex_edge_cases(void)
 	ft_printf("Width 1, Precision 0, zero value lowercase: '%1.0x'\n", 0);
 	ft_printf("Width 0, Precision 0, zero value uppercase: '%0.0X'\n", 0);
 	ft_printf("Width 1, Precision 0, zero value uppercase: '%1.0X'\n", 0);
-	
-	print_divider();
 }
 
 void	test_hex(void)
