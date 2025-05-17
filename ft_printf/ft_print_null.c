@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 12:55:53 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 16:56:13 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/17 08:21:50 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_print_null_str(t_flags flags)
 	count = 0;
 	if (flags.precision == -1)
 		str = ft_strdup("(null)");
-	else if (flags.precision > 6)
+	else if (flags.precision > 5)
 		str = ft_strdup("(null)");
 	else
 	{

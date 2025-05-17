@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_specifier_flags.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:05:18 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 15:24:48 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/17 08:56:14 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,9 @@ t_flags	*ft_specifier_flags(char **format)
 		else if (**format == '.')
 		{
 			(*format)++;
+			flags->precision = 0;
 			if (ft_isdigit(**format))
 			{
-				flags->zero = 0;
 				flags->precision = 0;
 				flags_atoi(&flags->precision, format);
 			}

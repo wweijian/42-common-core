@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 11:13:14 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/16 17:17:50 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/17 08:53:52 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	print_arg(char **format, va_list args)
 	count = 0;
 	(*format)++;
 	flags = ft_specifier_flags(format);
+
 	if (**format == 'c')
 		count += ft_print_char(va_arg(args, int), *flags);
 	else if (**format == 's')
@@ -34,7 +35,7 @@ static int	print_arg(char **format, va_list args)
 	else if (**format == 'p')
 		count += ft_print_ptr((unsigned long int)va_arg(args, void *), *flags);
 	else
-		return (write(1, *format, 1));
+		count += write(1, *format, 1);
 	free(flags);
 	return (count);
 }
