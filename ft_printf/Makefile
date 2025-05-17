@@ -3,26 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+         #
+#    By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 14:55:51 by wjhoe             #+#    #+#              #
-#    Updated: 2025/05/16 16:20:59 by wjhoe            ###   ########.fr        #
+#    Updated: 2025/05/17 11:14:21 by wjhoe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS = libft/ft_isalpha.c libft/ft_isdigit.c libft/ft_isalnum.c libft/ft_isascii.c libft/ft_isprint.c \
-	libft/ft_strlen.c libft/ft_memset.c libft/ft_bzero.c libft/ft_memcpy.c libft/ft_memmove.c \
-	libft/ft_strlcpy.c libft/ft_strlcat.c libft/ft_toupper.c libft/ft_tolower.c libft/ft_strchr.c \
-	libft/ft_strrchr.c libft/ft_strncmp.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_strnstr.c \
-	libft/ft_atoi.c libft/ft_calloc.c libft/ft_strdup.c libft/ft_substr.c libft/ft_strjoin.c \
-	libft/ft_strtrim.c libft/ft_split.c libft/ft_itoa.c libft/ft_strmapi.c libft/ft_striteri.c \
-	libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c \
-	ft_print_null.c ft_print_util.c ft_print_char.c ft_print_num.c ft_specifier_flags.c \
+SRCS = ft_print_null.c ft_print_util.c ft_print_char.c ft_print_num.c ft_specifier_flags.c \
 	ft_printf.c ft_print_ptr.c ft_print_str.c ft_print_hex.c ft_print_unsigned.c
-BONUS =
+
 OBJS = ${SRCS:.c=.o}
-BONUS_OBJS = ${BONUS:.c=.o}
+LIBFT_PATH = ./libft
+LIBFT = ${LIBFT_PATH}/libft.a
+
 AR = ar rcs
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
@@ -33,23 +28,25 @@ RM = rm -fr
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${LIBFT} ${OBJS}
+		cp ${LIBFT} ${NAME}
 		${AR} ${NAME} ${OBJS}
 
-bonus: ${NAME} ${BONUS_OBJS}
-		${AR} ${NAME} ${BONUS_OBJS}
+bonus: all
+
+${LIBFT}:
+		make -C ${LIBFT_PATH} all
 
 clean:
-		${RM} ${OBJS} ${BONUS_OBJS}
+		${RM} ${OBJS}
+		make -C ${LIBFT_PATH} clean
 
 fclean: clean
 		${RM} ${NAME}
+		make -C ${LIBFT_PATH} fclean
+
+test: all
 
 re: fclean all
 
 .PHONY: all clean fclean re bonus
-
-##
-#LIBFT = libft/libft.a
-#${LIBFT}:
-#	make -C libft
