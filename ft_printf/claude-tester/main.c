@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2025/05/17 19:18:37 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/18 10:38:04 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(void)
 	// test_percent();
 	// ft_printf("\n\n");
 	
+	setvbuf(stdout, NULL, _IONBF, 0);
+
 	test_char();
 	ft_printf("\n\n");
 	
