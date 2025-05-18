@@ -37,6 +37,9 @@ int	main(void)
 	
 	test_hex();
 	printf("\n\n");
+
+	test_return_values();
+	printf("\n\n");
 	
 	printf("\n\n===== TEST SUITE COMPLETE =====\n");
 	return (0);

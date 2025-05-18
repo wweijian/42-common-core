@@ -18,6 +18,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include <fcntl.h>
 
 /* These are the functions you need to implement */
 int		ft_printf(const char *format, ...);
@@ -30,6 +31,7 @@ void	test_pointer(void);
 void	test_decimal(void);
 void	test_unsigned(void);
 void	test_hex(void);
+void	test_return_values(void);
 
 /* Helper function prototypes */
 void	print_test_header(const char *test_name);

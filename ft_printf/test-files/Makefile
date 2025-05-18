@@ -6,13 +6,14 @@
 #    By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/16 14:55:51 by wjhoe             #+#    #+#              #
-#    Updated: 2025/05/18 11:31:18 by wjhoe            ###   ########.fr        #
+#    Updated: 2025/05/18 22:01:54 by wjhoe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ${FTPRINTF_PATH}/output.txt
 BON_SRCS = test_char.c test_decimal.c test_hex.c test_percent.c \
-		test_pointer.c test_string.c test_unsigned.c test_bonus.c
+		test_pointer.c test_string.c test_unsigned.c test_bonus.c \
+		test_return_value.c
 MAN_SRCS = test_mandatory.c
 LIB = libftprintf.a
 OBJS = printcompare
