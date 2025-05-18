@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2025/05/18 10:39:06 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/18 11:07:02 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	test_basic_percent(void)
 	printf("(IO) Test 5: Multiple percent: [%% %% %%]\n");
 }
 
-void	test_percent(void)
+void	test_percent_bonus(void)
 {
 	print_test_header("percent");
 

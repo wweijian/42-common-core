@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2025/05/17 19:07:52 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/18 11:07:09 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +23,7 @@
 int		ft_printf(const char *format, ...);
 
 /* Test function prototypes */
-void	test_percent(void);
+void	test_percent_bonus(void);
 void	test_char(void);
 void	test_string(void);
 void	test_pointer(void);

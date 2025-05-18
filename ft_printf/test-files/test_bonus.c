@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2025/05/17 19:36:38 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/18 11:25:30 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf_tester.h"
 
 int	main(void)
 {
 	printf("\n===== FT_PRINTF COMPREHENSIVE TEST SUITE =====\n\n");
 	
-	// test_percent();
-	// printf("\n\n");
+
 	
+	setvbuf(stdout, NULL, _IONBF, 0);
+
 	test_char();
 	printf("\n\n");
 	
