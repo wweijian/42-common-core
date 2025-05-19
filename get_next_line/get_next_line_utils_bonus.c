@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:56:34 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 17:45:38 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/19 18:50:32 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (char) c)
@@ -101,18 +103,25 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*res;
 	size_t	s1_len;
 	size_t	s2_len;
 
+	if (!s1)
+	{
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[0] = '\0';	
+	}
+	if (!s2)
+		return (NULL);
 	s1_len = 0;
 	s2_len = 0;
-	while (s1[s1_len])
+	while (s1 && s1[s1_len])
 		s1_len++;
-	while (s2[s2_len])
-		s1_len++;
+	while (s2 && s2[s2_len])
+		s2_len++;
 	res = (char *) malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!res)
 		return (NULL);

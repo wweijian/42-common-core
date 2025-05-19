@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:16:51 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 17:47:51 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/19 18:50:47 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*get_next_line(int fd);
 /* --------------- Utilities --------------- */
 char	*gnl_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 
 #endif

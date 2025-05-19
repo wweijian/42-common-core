@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:27:52 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 17:50:09 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/19 18:52:43 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ int main()
         printf("Could not open file.txt\n");
         return 0;
     }
-
+	printf("opened\n");
 	while ((line = get_next_line(fd1)) != NULL)
     {
-		printf("hi\n");
-		printf("Line %d: %s", ++line_count, line);
+
+		printf("Line %d:   %s", ++line_count, line);
         if (line[strlen(line) - 1] != '\n')
             printf(" (no newline)");
-        printf("\n");
         free(line);
     }
 	close(fd1);

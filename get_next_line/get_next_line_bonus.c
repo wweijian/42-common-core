@@ -6,7 +6,7 @@
 /*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:12:37 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 17:46:05 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/19 18:51:00 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ static char	*make_line(char *str)
 	res = malloc(sizeof(*res) * len + 1);
 	if (!res)
 		return (NULL);
-	while (i++ < len)
+	while (i < len)
+	{
 		res[i] = str[i];
+		i++;
+	}
 	res[len] = '\0';
 	return (res);
 }
@@ -81,6 +84,8 @@ char	*get_next_line(int fd)
 	if (BUFFER_SIZE == 0 || fd < 0)
 		return (NULL);
 	str[fd] = find_line(fd, str[fd]);
+	if (!str[fd])
+		return (NULL);
 	output = make_line(str[fd]);
 	str[fd] = remaining_line(str[fd]);
 	return (output);
