@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:56:34 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 18:50:32 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/19 21:07:34 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	if (!s1)
 	{
 		s1 = (char *)malloc(sizeof(char) * 1);
-		s1[0] = '\0';	
+		s1[0] = '\0';
 	}
 	if (!s2)
 		return (NULL);
@@ -127,5 +127,6 @@ char	*ft_strjoin(char *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(res, s1, s1_len + 1);
 	ft_strlcat(res, s2, s2_len + s1_len + 1);
+	free(s1);
 	return (res);
 }
