@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjhoe <wjhoe@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:12:37 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 18:51:00 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/20 17:50:01 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,3 @@ char	*get_next_line(int fd)
 	str[fd] = remaining_line(str[fd]);
 	return (output);
 }
-
-/* 
-
-	Memory leak potential in find_line:
-	If ft_strjoin fails and returns NULL, 
-	you lose the reference to the old str and can't free it later.
-
- */

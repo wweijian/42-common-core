@@ -6,15 +6,9 @@
 /*   By: wjhoe <wjhoe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:56:34 by wjhoe             #+#    #+#             */
-/*   Updated: 2025/05/19 21:07:34 by wjhoe            ###   ########.fr       */
+/*   Updated: 2025/05/20 17:51:09 by wjhoe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* 
-	ft_strjoin
-	ft_strchr
-	ft_strdup
-*/
 
 #include "get_next_line_bonus.h"
 

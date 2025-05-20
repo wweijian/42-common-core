@@ -3,6 +3,10 @@ all:
 	cc -Wall -Werror -Wextra get_next_line_bonus.c get_next_line_utils_bonus.c main.c -D BUFFER_SIZE=5
 	./a.out
 
+man:
+	cc get_next_line.c get_next_line_utils.c main.c -Wall -Werror -Wextra -g -O0
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./a.out
+
 valgrind:
 	clear
 	cc -Wall -Werror -Wextra -g -O0 -D BUFFER_SIZE=5 get_next_line_bonus.c get_next_line_utils_bonus.c main.c 
