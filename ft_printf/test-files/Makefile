@@ -53,14 +53,13 @@ m: fclean ${FTPRINTF}
 b: fclean ${FTPRINTF}
 		${CC} ${SRCS} ${BON_SRCS} -L. ${FTPRINTF} -o ${OBJS}
 		./${OBJS} > ${NAME}
-		@make clean
 		@echo
 		@echo "Bonus tests completed. Results in ${NAME}"
 		@echo
 
 ${FTPRINTF}:
 		make -C ${FTPRINTF_PATH} all
-	
+
 ${B_FTPRINTF}:
 		make -C ${B_FTPRINTF_PATH} bonus
 
